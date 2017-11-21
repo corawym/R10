@@ -8,28 +8,39 @@ const About = ({data}) => {
   console.log(data)
   return(
     <ScrollView>
+      <View style={styles.screenMargin}>
 
-      <Image
-        style={styles.logoImage}
-        resizeMode={"contain"}
-        source={require('../../assets/images/r10_logo.png')}
-      />
+        <View style={styles.center}>
+          <Image
+            style={styles.logoImage}
+            resizeMode={"contain"}
+            source={require('../../assets/images/r10_logo.png')}
+          />
+        </View>
 
-      {/*ItemSeparatorComponent = {() => <View style={styles.separator}/>}*/}
-        <Text>R10 is a conference that focuses on just about any topics related to dev.</Text>
-        <Text>Date & Venue</Text>
-        <Text>The R10 conference will take place on Tuesday, June 27,2017 in Vancouver, BC.</Text>
-        <Text>Code of Conduct</Text>
+        {/*ItemSeparatorComponent = {() => <View style={styles.separator}/>}*/}
         
-        <FlatList
-          data={data}
-          renderItem={({item}) =>
-          <View>
-            <Text>{item.title}</Text>
-            <Text>{item.description}</Text>
-          </View>  
-          }
-        />
+        <Text style={styles.marginBottom}>R10 is a conference that focuses on just about any topics related to dev.</Text>
+        
+        <View style={styles.marginBottom}>
+          <Text style={styles.marginBottom}>Date & Venue</Text>
+          <Text>The R10 conference will take place on Tuesday, June 27,2017 in Vancouver, BC.</Text>
+        </View>
+        
+        <View style={styles.marginBottom}>
+          <Text style={styles.marginBottom}>Code of Conduct</Text>
+          <FlatList
+            data={data}
+            renderItem={({item}) =>
+            <View style={styles.marginBottom}>
+              <Text style={styles.marginBottom}>{item.title}</Text>
+              <Text>{item.description}</Text>
+            </View>  
+            }
+          />
+        </View>
+        
+      </View>  
     </ScrollView>
   )
 }
