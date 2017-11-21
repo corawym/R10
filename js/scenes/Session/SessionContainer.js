@@ -7,6 +7,7 @@ import Session from './Session';
 class SessionContainer extends Component {
 
   constructor() {
+    super();
   }
 
   static propTypes = {
@@ -14,7 +15,9 @@ class SessionContainer extends Component {
   }
 
   render(){
-    <Session/>
+    return(
+      <Session/>
+    )
   }
 }
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { styles } from './styles';
 
 const Faves = () => {
-  console.log(data)
+  
   return(
     <Text>Faves scene</Text>
   )

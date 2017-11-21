@@ -16,7 +16,6 @@ import Router from './navigation/routes';
 export default class App extends Component {
   render() {
     return (
-      // <About/>
       <NavigationProvider router={Router}>
         <StackNavigation initialRoute={Router.getRoute('about')} />
       </NavigationProvider>

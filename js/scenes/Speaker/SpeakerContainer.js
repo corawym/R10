@@ -7,6 +7,7 @@ import Speaker from './Speaker';
 class SpeakerContainer extends Component {
 
   constructor() {
+    super();
   }
 
   static propTypes = {
@@ -14,7 +15,9 @@ class SpeakerContainer extends Component {
   }
 
   render(){
-    <Speaker/>
+    return(
+      <Speaker/>
+    )
   }
 }
 

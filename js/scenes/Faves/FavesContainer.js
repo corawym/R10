@@ -6,7 +6,14 @@ import Faves from './Faves';
 
 class FavesContainer extends Component {
 
+  static route = {
+    navigationBar: {
+      title: 'Faves',
+    }
+  }
+
   constructor() {
+    super();
   }
 
   static propTypes = {
@@ -14,7 +21,10 @@ class FavesContainer extends Component {
   }
 
   render(){
-    <Faves/>
+    return(
+      <Faves/>
+    )
+    
   }
 }
 

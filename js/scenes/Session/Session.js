@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { styles } from './styles';
 
 const Session = () => {
-  console.log(data)
   return(
     <Text>Session scene</Text>
   )

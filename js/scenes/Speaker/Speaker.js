@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { styles } from './styles';
 
 const Speaker = () => {
-  console.log(data)
   return(
     <Text>Speaker scene</Text>
   )
