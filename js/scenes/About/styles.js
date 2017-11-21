@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { brandColors } from '../../config/styles';
 
 export const styles = StyleSheet.create({
-  // styles go here
+  // global styles 
   screenMargin: {
     margin: 16
   },
@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
+  // about scene styles
   logoImage: {
     width: 200, 
     height: 50,

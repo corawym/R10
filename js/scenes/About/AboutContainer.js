@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
+
 import About from './About';
 
 class AboutContainer extends Component {
