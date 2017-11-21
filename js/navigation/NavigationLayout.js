@@ -4,11 +4,11 @@ import {
   TabNavigation,
   TabNavigationItem as TabItem,
 } from '@expo/ex-navigation';
-import { Text, Image } from 'react-native';
+import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Router from './routes';
-import { colors, typography } from '../config/styles';
+import { colors, typography, textSizes } from '../config/styles';
 
 
 const styles = () =>{
@@ -71,7 +71,7 @@ class NavigationLayout extends Component{
     return(
       <Icon
         name={iconName}
-        size={24}
+        size={20}
         color={isSelected ? 'white' : colors.MediumGrey}
       />
     )
@@ -80,7 +80,7 @@ class NavigationLayout extends Component{
   renderTitle(isSelected, title){
     return(
       // , fontFamily: typography.baseFontRegular
-      <Text style={{color: isSelected ? 'white' : colors.MediumGrey}}>{title}</Text>
+      <Text style={{fontFamily: typography.baseFontRegular, fontSize: textSizes.tabBar, color: isSelected ? 'white' : colors.MediumGrey}}>{title}</Text>
     )
   }
 }

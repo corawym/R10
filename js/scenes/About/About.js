@@ -32,6 +32,7 @@ const About = ({data}) => {
           <Text style={styles.marginBottom}>Code of Conduct</Text>
           <FlatList
             data={data}
+            
             renderItem={({item}) =>
             <View style={styles.marginBottom}>
               <Text style={styles.marginBottom}>{item.title}</Text>
