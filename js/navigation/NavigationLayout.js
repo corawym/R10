@@ -4,9 +4,11 @@ import {
   TabNavigation,
   TabNavigationItem as TabItem,
 } from '@expo/ex-navigation';
-import { Image } from 'react-native';
+import { Text, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Router from './routes';
+import { colors, typography } from '../config/styles';
 
 
 const styles = () =>{
@@ -22,14 +24,13 @@ class NavigationLayout extends Component{
   }
   render(){
     return(
-      <TabNavigation
-        initialTab="schedule">
+      <TabNavigation initialTab="schedule" tabBarColor='black'>
 
         <TabItem
           id="schedule"
           title="Schedule"
-          selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Image style={{width: 20, height: 20}} source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} /> }>
+          renderTitle={this.renderTitle}
+          renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected) }>
           <StackNavigation
             id="schedule"
             navigatorUID="schedule"
@@ -40,8 +41,8 @@ class NavigationLayout extends Component{
         <TabItem
           id="faves"
           title="Faves"
-          selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Image style={{width: 20, height: 20}} source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} /> }>
+          renderTitle={this.renderTitle}
+          renderIcon={(isSelected) => this.renderIcon('ios-heart', isSelected) }>
           <StackNavigation
             id="faves"
             navigatorUID="faves"
@@ -52,8 +53,8 @@ class NavigationLayout extends Component{
         <TabItem
           id="about"
           title="About"
-          selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Image style={{width: 20, height: 20}} source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} /> }>
+          renderTitle={this.renderTitle}
+          renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected) }>
           <StackNavigation
             id="about"
             navigatorUID="about"
@@ -64,6 +65,23 @@ class NavigationLayout extends Component{
         
       </TabNavigation>
     );
+  }
+
+  renderIcon(iconName, isSelected) {
+    return(
+      <Icon
+        name={iconName}
+        size={24}
+        color={isSelected ? 'white' : colors.MediumGrey}
+      />
+    )
+  }
+
+  renderTitle(isSelected, title){
+    return(
+      // , fontFamily: typography.baseFontRegular
+      <Text style={{color: isSelected ? 'white' : colors.MediumGrey}}>{title}</Text>
+    )
   }
 }
 export default NavigationLayout;
