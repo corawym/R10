@@ -39,7 +39,7 @@ const About = ({data}) => {
             }
           />
         </View>
-        
+
       </View>  
     </ScrollView>
   )

@@ -17,14 +17,18 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
+  // baseText:{
+  //   fontSize: 20,
+  //   color: brandColors.MediumGrey
+  // },
   // about scene styles
   logoImage: {
     width: 200, 
     height: 50,
   },
-  separator: {
-    flex: 1,
-    backgroundColor: brandColors.lightGrey,
-    height: StyleSheet.hairlineWidth
-  },
+  // separator: {
+  //   flex: 1,
+  //   backgroundColor: brandColors.lightGrey,
+  //   height: StyleSheet.hairlineWidth
+  // },
 });
