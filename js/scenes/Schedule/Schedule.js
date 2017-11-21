@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { styles } from './styles';
 
 const Schedule = () => {
-  console.log(data)
+  
   return(
     <Text>Schedule scene</Text>
   )

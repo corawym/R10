@@ -6,7 +6,14 @@ import Schedule from './Schedule';
 
 class ScheduleContainer extends Component {
 
+  static route = {
+    navigationBar: {
+      title: 'Schedule',
+    }
+  }
+
   constructor() {
+    super();
   }
 
   static propTypes = {
@@ -14,7 +21,10 @@ class ScheduleContainer extends Component {
   }
 
   render(){
-    <Schedule/>
+    return(
+      <Schedule />
+    )
+    
   }
 }
 

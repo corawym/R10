@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { styles } from './styles';
 
+
 const About = ({data}) => {
   console.log(data)
   return(

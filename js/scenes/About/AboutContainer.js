@@ -6,6 +6,12 @@ import About from './About';
 
 class AboutContainer extends Component {
 
+  static route = {
+    navigationBar: {
+      title: 'About',
+    }
+  }
+
   constructor() {
     super();
     this.state = {
