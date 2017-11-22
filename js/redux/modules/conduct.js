@@ -17,7 +17,7 @@ export const getConductError = (error) => ({
 })
 
 // Async action creator
-export const getConduct = () =>{
+export const getConduct = () => {
   return (dispatch) => {
     dispatch(getConductBegin());
     fetch('https://r10app-95fea.firebaseio.com/code_of_conduct.json')
@@ -33,28 +33,28 @@ export const getConduct = () =>{
 
 // Reducer
 const initialState = {
-  isLoading:false,
-  conductData:[],
+  isLoading: false,
+  conductData: [],
   errorMsg:'Fail to load'
 }
 
 export default (state = initialState, action) => {
-  switch (action.type){
+  switch (action.type) {
     case GET_CONDUCT_BEGIN:
       return {
         ...state,
-        isLoading:true
+        isLoading: true
       }
     case GET_CONDUCT_SUCCESS:
       return {
         ...state,
-        isLoading:false,
+        isLoading: false,
         conductData: action.conduct
       }
     case GET_CONDUCT_ERROR:
       return {
         ...state,
-        isLoading:false,
+        isLoading: false,
         errorMsg: action.error
       }
     default:

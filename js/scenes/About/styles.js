@@ -1,27 +1,32 @@
 import { StyleSheet } from 'react-native';
 
-import { colors } from '../../config/styles';
+import { colors, typography, textSizes, margins } from '../../config/styles';
 
 export const styles = StyleSheet.create({
-  // global styles 
   screenMargin: {
-    margin: 16
+    margin: margins.marginS
   },
-  marginTop: {
-    marginTop: 20
-  },
-  marginBottom: {
-    marginBottom: 20
-  },
-  center:{
+  imageWrapper: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: margins.marginL
   },
-  // baseText:{
-  //   fontSize: 20,
-  //   color: brandColors.MediumGrey
-  // },
-  // about scene styles
+  baseText: {
+    fontSize: textSizes.body,
+    fontFamily: typography.fontLight,
+    marginBottom: margins.marginL
+  },
+  aboutTitle: {
+    fontSize: textSizes.title1,
+    fontFamily: typography.fontRegular,
+    marginBottom: margins.marginL
+  },
+  conductTitle: {
+    color: colors.Purple,
+    fontSize: textSizes.body,
+    fontFamily: typography.fontLight,
+    marginBottom: margins.marginL
+  },
   logoImage: {
     width: 200, 
     height: 50,

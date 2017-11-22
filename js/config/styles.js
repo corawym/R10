@@ -11,17 +11,18 @@ export const colors = {
 // colors.red
 
 export const typography = {
-  baseFontRegular: 'Montserrat',
-  baseFontLight: 'Montserrat-Light',
+  fontRegular: 'Montserrat',
+  fontLight: 'Montserrat-Light',
 }
 
 export const textSizes = {
-  title1: 34,
-  body: 17,
+  title1: 22,
+  title2: 20,
+  body: 15,
   tabBar: 12
 }
 
 export const margins = {
-  bottomS: 8,
-  bottomL: 20,
+  marginS: 8, 
+  marginL: 20
 }

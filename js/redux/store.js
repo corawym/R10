@@ -7,12 +7,12 @@ import rootReducer from './reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
 
-const createStoreWithNavigation = createNavigationEnabledStore({
+const createStoreWithNavigation = createNavigationEnabledStore ({
   createStore,
   navigationStateKey: 'navigation',
 }); 
 
-const store = createStoreWithNavigation(
+const store = createStoreWithNavigation (
   rootReducer,
   {}, // initial state
   composeEnhancers(
