@@ -11,6 +11,7 @@ import {
   NavigationProvider,
   StackNavigation,
 } from '@expo/ex-navigation';
+import LinearGradient from 'react-native-linear-gradient';
 
 import Store from './redux/store';
 import Router from './navigation/routes';
@@ -25,15 +26,20 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={Store}>
-        <NavigationProvider context={navigationContext}>
+        
+        <NavigationProvider context={navigationContext} >
           <StackNavigation 
             navigatorUID="root"
             id="root"
             initialRoute={Router.getRoute('layout')} 
           />
         </NavigationProvider>
+      
       </Provider>
     );
   }
 }
+
+
+
 

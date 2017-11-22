@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SectionList, ListItem, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -7,9 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { styles } from './styles';
 
 
-
 const SessionList = ({data}) => {
-  
   
   return(
     <SectionList

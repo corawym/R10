@@ -3,12 +3,13 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 
 import SessionList from '../../components/Session';
+import Loader from '../../components/Loader';
 import { styles } from './styles';
 
 const Schedule = ({data, isLoading}) => {
   if (isLoading) {
     return (
-    <ActivityIndicator animating={true} size="small" color="black" />
+      <Loader />
     );
   }else{
     return(

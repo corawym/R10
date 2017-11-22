@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getConduct } from '../../redux/modules/conduct';
 
 import About from './About';
+import Loader from '../../components/Loader';
 
 class AboutContainer extends Component {
 
@@ -13,14 +13,6 @@ class AboutContainer extends Component {
       title: 'About',
     }
   }
-
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     data: [],
-  //     isLoading: true,
-  //   };
-  // }
 
   componentDidMount() {
     this.props.dispatch(getConduct());   
@@ -34,7 +26,7 @@ class AboutContainer extends Component {
     const { conductData, isLoading } = this.props;
     if (isLoading) {
       return (
-      <ActivityIndicator animating={true} size="small" color="black" />
+        <Loader />
       );
     } else {
       return (

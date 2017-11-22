@@ -10,16 +10,9 @@ class ScheduleContainer extends Component {
   static route = {
     navigationBar: {
       title: 'Schedule',
+      barTintColor: 'red'
     }
   }
-
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     data: [],
-  //     isLoading: true,
-  //   };
-  // }
 
   componentDidMount() {
     this.props.dispatch(getSession());   
