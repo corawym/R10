@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getSession } from '../../redux/modules/session';
 
 import Schedule from './Schedule';
 
@@ -14,18 +15,42 @@ class ScheduleContainer extends Component {
 
   constructor() {
     super();
+    this.state = {
+      data: [],
+      isLoading: true,
+    };
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getSession());   
   }
 
   static propTypes = {
-
+    sessionData: PropTypes.array.isRequired,
   }
 
   render(){
-    return(
-      <Schedule />
-    )
-    
+    const { sessionData, isLoading } = this.props;
+    // if (isLoading) {
+    //   return (
+    //   <ActivityIndicator animating={true} size="small" color="black" />
+    //   );
+    // } else {
+    //   return (
+    //     <Schedule data={sessionData} isLoading={isLoading} />
+    //   )
+    // }
+    return (
+        <Schedule data={sessionData} isLoading={isLoading} />
+      )
   }
 }
 
-export default ScheduleContainer;
+const mapStateToProps = store => {
+  return {
+    sessionData: store.session.sessionData,
+    isLoading: store.session.isLoading
+  }
+}
+
+export default connect(mapStateToProps)(ScheduleContainer)
