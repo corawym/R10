@@ -14,13 +14,13 @@ class AboutContainer extends Component {
     }
   }
 
-  constructor() {
-    super();
-    this.state = {
-      data: [],
-      isLoading: true,
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     data: [],
+  //     isLoading: true,
+  //   };
+  // }
 
   componentDidMount() {
     this.props.dispatch(getConduct());   

@@ -13,13 +13,13 @@ class ScheduleContainer extends Component {
     }
   }
 
-  constructor() {
-    super();
-    this.state = {
-      data: [],
-      isLoading: true,
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     data: [],
+  //     isLoading: true,
+  //   };
+  // }
 
   componentDidMount() {
     this.props.dispatch(getSession());   
@@ -31,15 +31,6 @@ class ScheduleContainer extends Component {
 
   render(){
     const { sessionData, isLoading } = this.props;
-    // if (isLoading) {
-    //   return (
-    //   <ActivityIndicator animating={true} size="small" color="black" />
-    //   );
-    // } else {
-    //   return (
-    //     <Schedule data={sessionData} isLoading={isLoading} />
-    //   )
-    // }
     return (
         <Schedule data={sessionData} isLoading={isLoading} />
       )

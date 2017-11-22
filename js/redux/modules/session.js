@@ -24,7 +24,7 @@ export const getSession = () => {
     fetch('https://r10app-95fea.firebaseio.com/sessions.json')
     .then(resp => resp.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       dispatch(getSessionSuccess(formatSessionData(data)));
     })
     .catch(error => {
