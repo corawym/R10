@@ -10,7 +10,7 @@ class ScheduleContainer extends Component {
   static route = {
     navigationBar: {
       title: 'Schedule',
-      barTintColor: 'red'
+      
     }
   }
 
@@ -23,9 +23,9 @@ class ScheduleContainer extends Component {
   }
 
   render(){
-    const { sessionData, isLoading } = this.props;
+    const { sessionData, isLoading, currentNavigatorUID } = this.props;
     return (
-        <Schedule data={sessionData} isLoading={isLoading} />
+        <Schedule data={sessionData} isLoading={isLoading} currentNavigatorUID={currentNavigatorUID}/>
       )
   }
 }
@@ -33,7 +33,8 @@ class ScheduleContainer extends Component {
 const mapStateToProps = store => {
   return {
     sessionData: store.session.sessionData,
-    isLoading: store.session.isLoading
+    isLoading: store.session.isLoading,
+    currentNavigatorUID: store.navigation.currentNavigatorUID
   }
 }
 

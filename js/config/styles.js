@@ -1,9 +1,9 @@
 export const colors = {
-  Red: '#cf392a',
-  Purple: '#9963ea',
-  MediumGrey: '#999999',
-  LightGrey: '#e6e6e6',
-  Blue: '#8797D6',
+  red: '#cf392a',
+  purple: '#9963ea',
+  mediumGrey: '#999999',
+  lightGrey: '#e6e6e6',
+  blue: '#8797D6',
 
 };
 

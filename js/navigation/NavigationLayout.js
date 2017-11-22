@@ -8,20 +8,45 @@ import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Router from './routes';
+import GradientBackground from '../components/GradientBackground';
 import { colors, typography, textSizes } from '../config/styles';
 
 
-const styles = () =>{
-
+const defaultRouteConfig = {
+  navigationBar: {
+    tintColor: 'white',
+    titleStyle: {fontFamily: typography.fontRegular},
+    renderBackground: () => (
+      <GradientBackground colors={[colors.purple, colors.red]}/>
+    )
+  }
 }
 
 
 class NavigationLayout extends Component{
-  static route = {
-    navigationBar: {
-      visible: false,
-    }
+  // static route = {
+  //   navigationBar: {
+  //     visible: false,    
+  //   }
+  // }
+
+  renderIcon(iconName, isSelected) {
+    return(
+      <Icon
+        name={iconName}
+        size={20}
+        color={isSelected ? 'white' : colors.mediumGrey}
+      />
+    )
   }
+
+  renderTitle(isSelected, title){
+    return(
+      // , fontFamily: typography.baseFontRegular
+      <Text style={{fontFamily: typography.baseFontRegular, fontSize: textSizes.tabBar, color: isSelected ? 'white' : colors.mediumGrey}}>{title}</Text>
+    )
+  }
+
   render(){
     return(
       <TabNavigation initialTab="schedule" tabBarColor='black'>
@@ -35,6 +60,7 @@ class NavigationLayout extends Component{
             id="schedule"
             navigatorUID="schedule"
             initialRoute={Router.getRoute('schedule')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
 
@@ -47,6 +73,7 @@ class NavigationLayout extends Component{
             id="faves"
             navigatorUID="faves"
             initialRoute={Router.getRoute('faves')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
 
@@ -59,6 +86,7 @@ class NavigationLayout extends Component{
             id="about"
             navigatorUID="about"
             initialRoute={Router.getRoute('about')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
 
@@ -67,21 +95,6 @@ class NavigationLayout extends Component{
     );
   }
 
-  renderIcon(iconName, isSelected) {
-    return(
-      <Icon
-        name={iconName}
-        size={20}
-        color={isSelected ? 'white' : colors.MediumGrey}
-      />
-    )
-  }
-
-  renderTitle(isSelected, title){
-    return(
-      // , fontFamily: typography.baseFontRegular
-      <Text style={{fontFamily: typography.baseFontRegular, fontSize: textSizes.tabBar, color: isSelected ? 'white' : colors.MediumGrey}}>{title}</Text>
-    )
-  }
+  
 }
 export default NavigationLayout;

@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     marginBottom: margins.marginL
   },
   conductTitle: {
-    color: colors.Purple,
+    color: colors.purple,
     fontSize: textSizes.body,
     fontFamily: typography.fontLight,
     marginBottom: margins.marginL

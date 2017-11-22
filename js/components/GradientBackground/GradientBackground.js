@@ -1,14 +1,16 @@
 import React from 'react';
-import Gradient from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 
 import { styles } from './styles';
+import { colors } from '../../config/styles';
 
-const GradientBackground = () => {
+const GradientBackground = ({colors}) => {
   return (
     <LinearGradient 
-      start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-      locations={[0,0.5,0.6]}
-      colors={['#4c669f', '#3b5998', '#192f6a']}
+      start={{x: 0.9, y: 0}} 
+      end={{x: 0.3, y: 1.0}}
+      locations={[0,1]}
+      colors={colors}
       style={styles.linearGradient}>
     </LinearGradient>
   )
