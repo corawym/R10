@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getConduct } from '../../redux/modules/conduct';
 
 import About from './About';
 
@@ -21,37 +23,36 @@ class AboutContainer extends Component {
   }
 
   componentDidMount() {
-    let endpoint = 'https://r10app-95fea.firebaseio.com/code_of_conduct.json';
-    fetch(endpoint)
-      // if fetch is successful, read our JSON out of the response
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ data });
-      })
-      .catch(error => console.log(`Error fetching JSON: ${error}`));
-  }
-
-  componentDidUpdate() {
-    if ( this.state.data && this.state.isLoading ) {
-      this.setState({ isLoading: false });
-    }
+    this.props.dispatch(getConduct());   
   }
 
   static propTypes = {
-
+    conductData: PropTypes.array.isRequired,
   }
 
   render(){
-    if (this.state.isLoading) {
+    const { conductData, isLoading } = this.props;
+    if (isLoading) {
       return (
       <ActivityIndicator animating={true} size="small" color="black" />
       );
     } else {
       return (
-        <About data={this.state.data}/>
+        <About data={conductData}/>
       )
     }
   }
+
 }
 
-export default AboutContainer;
+const mapStateToProps = store => {
+  return {
+    conductData: store.conduct.conductData,
+    isLoading: store.conduct.isLoading
+  }
+}
+
+export default connect(mapStateToProps)(AboutContainer)
+
+
+
