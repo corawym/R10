@@ -1,21 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+import { goToSpeaker } from '../../lib/navigationHelpers';
 import { styles } from './styles';
 
-
-const Session = ({sessionData}) => {
-  console.log(sessionData)
+const Session = ({sessionData, speakerData}) => {
   return (
-    <View>
+    <View style={styles.sessionContainer}>
       <Text style={styles.subheadLocation}>{sessionData.location}</Text>
       <Text style={styles.title}>{sessionData.title}</Text>
       <Text style={styles.subheadTime}>{moment.unix(sessionData.start_time).format('LT')}</Text>
       <Text style={styles.body}>{sessionData.description}</Text>
 
-      <Text>{sessionData.speaker}</Text>
+      <TouchableHighlight onPress={() => goToSpeaker(speakerData)}>
+        <Text>{speakerData.name}</Text>
+      </TouchableHighlight>
     </View>
   )
 };

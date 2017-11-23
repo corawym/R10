@@ -13,7 +13,7 @@ const Schedule = ({data, isLoading, currentNavigatorUID}) => {
     );
   }else{
     return(
-      <SessionList data={data} currentNavigatorUID={currentNavigatorUID}/>
+      <SessionList data={data} currentNavigatorUID={'schedule'}/>
     )
   }
 }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-
+import { connect } from 'react-redux';
 import Session from './Session';
-
-import { styles } from './styles';
+import { getSpeaker } from '../../redux/modules/speaker'
 
 class SessionContainer extends Component {
   static route = {
@@ -11,14 +10,22 @@ class SessionContainer extends Component {
       title: 'Session',
     }
   }
+  componentDidMount = () => {
+    this.props.dispatch(getSpeaker(this.props.sessionData.speaker))
+  }
   render() {
-    const { sessionData } = this.props;
+    const { sessionData, speakerData } = this.props;
     return (
-      <View style={styles.sessionContainer}>
-        <Session sessionData={sessionData}/>
+      <View>
+        <Session sessionData={sessionData} speakerData={speakerData} />
       </View>
     );
   }
 }
+const mapStateToProps = store => {
+  return {
+    speakerData: store.speaker.speakerData
+  }
+}
 
-export default SessionContainer;
+export default connect(mapStateToProps)(SessionContainer);

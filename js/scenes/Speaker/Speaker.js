@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 import { styles } from './styles';
 
-const Speaker = () => {
+const Speaker = ({speakerData}) => {
   return(
-    <Text>Speaker scene</Text>
+    <Text>{speakerData.name}</Text>
   )
 }
 
 Speaker.propTypes = {
-
+  
 }
 
 export default Speaker;

@@ -23,9 +23,9 @@ class ScheduleContainer extends Component {
   }
 
   render(){
-    const { sessionData, isLoading, currentNavigatorUID } = this.props;
+    const { sessionData, isLoading } = this.props;
     return (
-        <Schedule data={sessionData} isLoading={isLoading} currentNavigatorUID={currentNavigatorUID}/>
+        <Schedule data={sessionData} isLoading={isLoading} />
       )
   }
 }
@@ -33,8 +33,7 @@ class ScheduleContainer extends Component {
 const mapStateToProps = store => {
   return {
     sessionData: store.session.sessionData,
-    isLoading: store.session.isLoading,
-    currentNavigatorUID: store.navigation.currentNavigatorUID
+    isLoading: store.session.isLoading
   }
 }
 
