@@ -1,10 +1,11 @@
 import React from 'react';
-import { SectionList, ListItem, View, Text, TouchableHighlight, Platform } from 'react-native';
+import { SectionList, ListItem, View, Text, TouchableHighlight, Platform, ItemSeparatorComponent } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { goToSession } from '../../lib/navigationHelpers';
+import Separator from '../Separator';
 import { styles } from './styles';
 import { colors } from '../../config/styles';
 
@@ -14,18 +15,22 @@ const SessionList = ({data, currentNavigatorUID}) => {
     <SectionList
       renderItem={({item}) => {
         return (
-          <TouchableHighlight onPress={() => goToSession(currentNavigatorUID, item)} >
-            <View style={styles.contentWrapper}>
-              <Text style={styles.sessionTitle}>{item.title}</Text>
+          <TouchableHighlight onPress={() => goToSession(currentNavigatorUID, item)} underlayColor={colors.lightGrey}>
+            <View>
+              <View style={styles.contentWrapper}>
+                <Text style={styles.sessionTitle}>{item.title}</Text>
 
-              <View style={styles.sessionSubtitleWrapper}>
-                <Text style={styles.sessionSubtitle}>{item.location}</Text>
-                <Icon 
-                  name={ Platform.OS === 'ios' ? "ios-heart" : "md-heart" } 
-                  color={colors.red}>
-                </Icon>
+                <View style={styles.sessionSubtitleWrapper}>
+                  <Text style={styles.sessionSubtitle}>{item.location}</Text>
+                  <Icon 
+                    name={ Platform.OS === 'ios' ? "ios-heart" : "md-heart" } 
+                    color={colors.red}
+                    size={14}>  
+                  </Icon>
+                </View>
+                
               </View>
-              
+              <Separator />
             </View>
           </TouchableHighlight>
         )  
@@ -38,6 +43,7 @@ const SessionList = ({data, currentNavigatorUID}) => {
         )  
       }}
       sections={data}
+     
     />
 
   )

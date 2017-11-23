@@ -1,10 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 import { colors, typography, textSizes, margins } from '../../config/styles';
 
 export const styles = StyleSheet.create({
   screenMargin: {
-    margin: margins.marginS
+    ...Platform.select({
+      ios: {
+        margin: margins.marginS
+      },
+      android: {
+        margin: margins.marginL
+      },
+    }),
   },
   imageWrapper: {
     flex: 1,
@@ -32,9 +39,7 @@ export const styles = StyleSheet.create({
     width: 200, 
     height: 50,
   },
-  // separator: {
-  //   flex: 1,
-  //   backgroundColor: brandColors.lightGrey,
-  //   height: StyleSheet.hairlineWidth
-  // },
+  aboutIntroWrapper: {
+    marginTop: margins.marginL
+  }
 });

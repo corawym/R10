@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 import { colors, typography, textSizes, margins } from '../../config/styles';
 
@@ -16,7 +16,18 @@ export const styles = StyleSheet.create({
   sectionTime: {
     fontSize: textSizes.subhead,
     fontFamily: typography.fontRegular,
-    margin: margins.marginS
+    marginTop: margins.marginS,
+    marginBottom: margins.marginS,
+    ...Platform.select({
+      ios: {
+        marginLeft: margins.marginS,
+        marginRight: margins.marginS
+      },
+      android: {
+        marginLeft: margins.marginL,
+        marginRight: margins.marginL
+      },
+    }),
   },
   sessionSubtitleWrapper: {
     flex: 1,
@@ -26,10 +37,21 @@ export const styles = StyleSheet.create({
   contentWrapper: {
     marginTop: margins.marginL,
     marginBottom: margins.marginL,
-    marginLeft: margins.marginS,
-    marginRight: margins.marginS
+    ...Platform.select({
+      ios: {
+        marginLeft: margins.marginS,
+        marginRight: margins.marginS
+      },
+      android: {
+        marginLeft: margins.marginL,
+        marginRight: margins.marginL
+      },
+    }),
   },
   sectionWrapper: {
-    backgroundColor: colors.lightGrey
+    backgroundColor: colors.lightGrey,
+  },
+  touchable: {
+    backgroundColor: 'red'
   }
 })

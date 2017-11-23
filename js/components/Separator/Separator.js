@@ -4,7 +4,8 @@ import { styles } from './styles';
 
 const Separator = () => {
   return (
-    <View/>
+    <View style={styles.separator}>
+    </View>
   )
 }
 
