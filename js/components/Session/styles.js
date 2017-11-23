@@ -18,6 +18,11 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontRegular,
     margin: margins.marginS
   },
+  sessionSubtitleWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   contentWrapper: {
     marginTop: margins.marginL,
     marginBottom: margins.marginL,
