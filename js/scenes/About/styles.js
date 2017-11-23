@@ -9,7 +9,8 @@ export const styles = StyleSheet.create({
   imageWrapper: {
     flex: 1,
     alignItems: 'center',
-    marginTop: margins.marginL
+    marginTop: margins.marginL,
+    marginBottom: margins.marginL,
   },
   baseText: {
     fontSize: textSizes.body,
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
   conductTitle: {
     color: colors.purple,
     fontSize: textSizes.body,
-    fontFamily: typography.fontLight,
+    fontFamily: typography.fontRegular,
     marginBottom: margins.marginL
   },
   logoImage: {

@@ -1,0 +1,109 @@
+import React, { Component } from 'react';
+import {
+  StackNavigation,
+  DrawerNavigation,
+  DrawerNavigationItem,
+} from '@expo/ex-navigation';
+import { View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import Router from './routes';
+import GradientBackground from '../components/GradientBackground';
+import { colors, typography, textSizes, margins } from '../config/styles';
+
+
+const defaultRouteConfig = {
+  navigationBar: {
+    tintColor: 'white',
+    titleStyle: {fontFamily: typography.fontRegular},
+    renderBackground: () => (
+      <GradientBackground colors={[colors.purple, colors.red]}/>
+    )
+  }
+}
+
+
+class NavigationLayout extends Component {
+  // state = {  }
+
+  _renderIcon(iconName, isSelected) {
+    return(
+      <Icon
+        name={iconName}
+        size={22}
+        color={isSelected ? colors.purple : colors.mediumGrey}
+      />
+    )
+  }
+
+  _renderTitle(title, isSelected){
+    return(
+      <Text 
+        style={{
+          fontFamily: typography.fontRegular, 
+          fontSize: textSizes.body, 
+          color: isSelected ? colors.purple : colors.mediumGrey,
+          marginLeft: margins.marginS
+        }}>
+        {title}
+      </Text>
+    )
+  }
+
+  render() {
+    return (
+      <DrawerNavigation
+        id='schedule'
+        initialItem='schedule'
+        drawerWidth={220}
+      >
+        
+        <DrawerNavigationItem
+          id='schedule'
+          selectedStyle={{backgroundColor: colors.lightGrey}}
+          renderIcon={(isSelected) => this._renderIcon('md-calendar', isSelected) }
+          renderTitle={isSelected => this._renderTitle('Schedule', isSelected)}  
+        >
+          <StackNavigation
+            id='schedule'
+            navigatorUID="schedule"
+            initialRoute={Router.getRoute('schedule')}
+            defaultRouteConfig={defaultRouteConfig}
+          />
+        </DrawerNavigationItem>
+
+        <DrawerNavigationItem
+          id='faves'
+          selectedStyle={{backgroundColor: colors.lightGrey}}
+          renderIcon={(isSelected) => this._renderIcon('md-heart', isSelected) }
+          renderTitle={isSelected => this._renderTitle('Faves', isSelected)}  
+        >
+          <StackNavigation
+            id='faves'
+            navigatorUID="faves"            
+            initialRoute={Router.getRoute('faves')}
+            defaultRouteConfig={defaultRouteConfig}
+          />
+        </DrawerNavigationItem>
+
+        <DrawerNavigationItem
+          id='about'
+          selectedStyle={{backgroundColor: colors.lightGrey}}
+          renderIcon={(isSelected) => this._renderIcon('md-information-circle', isSelected) }
+          renderTitle={isSelected => this._renderTitle('About', isSelected)}  
+        >
+          <StackNavigation
+            id='about'
+            navigatorUID="about" 
+            initialRoute={Router.getRoute('about')}
+            defaultRouteConfig={defaultRouteConfig}
+          />
+        </DrawerNavigationItem>
+
+      </DrawerNavigation>
+    );
+  }
+
+}
+
+export default NavigationLayout;

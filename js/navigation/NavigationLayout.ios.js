@@ -42,8 +42,14 @@ class NavigationLayout extends Component{
 
   renderTitle(isSelected, title){
     return(
-      // , fontFamily: typography.baseFontRegular
-      <Text style={{fontFamily: typography.baseFontRegular, fontSize: textSizes.tabBar, color: isSelected ? 'white' : colors.mediumGrey}}>{title}</Text>
+      <Text 
+        style={{
+          fontFamily: typography.fontRegular, 
+          fontSize: textSizes.tabBar, 
+          color: isSelected ? 'white' : colors.mediumGrey
+        }}>
+        {title}
+      </Text>
     )
   }
 
@@ -89,7 +95,6 @@ class NavigationLayout extends Component{
             defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
-
         
       </TabNavigation>
     );
