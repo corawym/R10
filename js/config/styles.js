@@ -18,7 +18,9 @@ export const typography = {
 export const textSizes = {
   title1: 22,
   title2: 20,
+  title3: 17,
   body: 15,
+  subhead: 14,
   tabBar: 12
 }
 

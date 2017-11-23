@@ -14,16 +14,18 @@ const SessionList = ({data, currentNavigatorUID}) => {
       renderItem={({item}) => {
         return (
           <TouchableHighlight onPress={() => goToSession(currentNavigatorUID, item)}>
-            <View>
+            <View style={styles.contentWrapper}>
               <Text style={styles.sessionTitle}>{item.title}</Text>
-              <Text>{item.location}</Text>
+              <Text style={styles.sessionSubtitle}>{item.location}</Text>
             </View>
           </TouchableHighlight>
         )  
       }}
       renderSectionHeader={({section}) => {
         return (
-          <Text>{moment.unix(section.title).format('LT')}</Text>
+          <View style={styles.sectionWrapper}>
+            <Text style={styles.sectionTime}>{moment.unix(section.title).format('LT')}</Text>
+          </View>
         )  
       }}
       sections={data}
