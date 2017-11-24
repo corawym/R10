@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, Image, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
+import { 
+  ScrollView, 
+  View, 
+  Text, 
+  Image, 
+  // LayoutAnimation,
+  // TouchableOpacity,
+  // Platform,
+  // UIManager
+} from 'react-native';
 
 import Separator from '../../components/Separator';
+import ConductItem from '../../components/ConductItem';
 import { styles } from './styles';
 
 
@@ -28,15 +38,11 @@ const About = ({data}) => {
 
         <View>
           <Text style={styles.aboutTitle}>Code of Conduct</Text>
-          <FlatList
-            data={data}
-            renderItem={({item}) =>
-            <View>
-              <Text style={styles.conductTitle}>{item.title}</Text>
-              <Text style={styles.baseText}>{item.description}</Text>
-            </View>  
-            }
-          />
+          {
+            data.map((item, index) => {
+              return <ConductItem key={index} data={item} />
+            })
+          }
         </View>
 
       </View>  

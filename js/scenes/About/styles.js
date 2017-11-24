@@ -29,12 +29,6 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontRegular,
     marginBottom: margins.marginL
   },
-  conductTitle: {
-    color: colors.purple,
-    fontSize: textSizes.body,
-    fontFamily: typography.fontRegular,
-    marginBottom: margins.marginL
-  },
   logoImage: {
     width: 200, 
     height: 50,

@@ -7,12 +7,12 @@ import { getConduct } from '../../redux/modules/conduct';
 import About from './About';
 import Loader from '../../components/Loader';
 
+
 class AboutContainer extends Component {
 
   static route = {
     navigationBar: {
       title: 'About',
-      
     }
   }
 
