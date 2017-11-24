@@ -29,6 +29,7 @@ export const textSizes = {
   title1: 22,
   title2: 20,
   title3: 17,
+  bodyL: 16,
   body: 15,
   subhead: 14,
   tabBar: 12
