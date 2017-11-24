@@ -24,7 +24,8 @@ export const styles = StyleSheet.create({
   body: {
     fontSize: textSizes.bodyL,
     fontFamily: typography.fontLight,
-    marginBottom: margins.marginL
+    marginBottom: margins.marginL,
+    lineHeight: textSizes.title2
   },
   subheadLocation: {
     fontSize: textSizes.subhead,
@@ -56,7 +57,14 @@ export const styles = StyleSheet.create({
   speakerImage: {
     width: 50,
     height: 50,
-    borderRadius: 50,
+    ...Platform.select({
+      ios: {
+        borderRadius: 25,
+      },
+      android: {
+        borderRadius: 50,
+      },
+    }), 
   },
   speakerWrapper: {
     flexDirection: 'row',

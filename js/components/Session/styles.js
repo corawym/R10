@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   sessionTitle: {
     fontSize: textSizes.body,
     fontFamily: typography.fontRegular,
-    marginBottom: margins.marginS
+    marginBottom: margins.marginS,
   },
   sessionSubtitle: {
     fontSize: textSizes.subhead,

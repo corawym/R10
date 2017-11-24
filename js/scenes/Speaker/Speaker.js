@@ -20,6 +20,7 @@ const Speaker = ({speakerData}) => {
           <Text style={styles.speakerName}>{speakerData.name}</Text>
         </View>
         <Text style={styles.speakerBio}>{speakerData.bio}</Text>
+
       </View>
     </View>
   )

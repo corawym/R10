@@ -22,7 +22,8 @@ export const styles = StyleSheet.create({
   baseText: {
     fontSize: textSizes.body,
     fontFamily: typography.fontLight,
-    marginBottom: margins.marginL
+    marginBottom: margins.marginL,
+    lineHeight: textSizes.title2
   },
   aboutTitle: {
     fontSize: textSizes.title1,
