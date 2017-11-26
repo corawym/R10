@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, Text, TouchableHighlight, Platform, Image } from 'react-native';
+import { View, Text, TouchableHighlight, Platform, Image, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Separator from '../../components/Separator';
+import CustomButton from '../../components/CustomButton';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { styles } from './styles';
 import { colors } from '../../config/styles';
 
 
-const Session = ({sessionData, speakerData}) => {
+const Session = ({sessionData, speakerData }) => {
   return (
     <View>
       <View style={styles.sessionContainer}>
@@ -30,7 +31,7 @@ const Session = ({sessionData, speakerData}) => {
         <Text style={styles.subheadPresent}>Presented by:</Text>
       </View>
 
-      <TouchableHighlight onPress={() => goToSpeaker(speakerData)} underlayColor={colors.lightGrey}>
+      <TouchableHighlight onPress={() => goToSpeaker(speakerData)} underlayColor={colors.underlayGrey}>
         <View>
           <View style={styles.speakerWrapper}>
             <Image 
@@ -41,7 +42,17 @@ const Session = ({sessionData, speakerData}) => {
           </View>
         </View>
       </TouchableHighlight>
-      <Separator/>
+
+      <View style={styles.separatorWrapper}>
+        <Separator/>
+      </View>
+
+      <TouchableHighlight>
+        <View> 
+          <CustomButton btnText='Add to Faves'/>
+        </View>
+      </TouchableHighlight>
+      
     </View>
   )
 };

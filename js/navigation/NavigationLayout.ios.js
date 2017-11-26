@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Router from './routes';
 import GradientBackground from '../components/GradientBackground';
 import { colors, typography, textSizes } from '../config/styles';
+import { styles } from './styles';
 
 
 const defaultRouteConfig = {
@@ -17,7 +18,7 @@ const defaultRouteConfig = {
     tintColor: 'white',
     titleStyle: {fontFamily: typography.fontRegular},
     renderBackground: () => (
-      <GradientBackground colors={[colors.purple, colors.red]}/>
+      <GradientBackground colors={[colors.purple, colors.red]} gradientStyles={styles.gradientBg}/>
     )
   }
 }

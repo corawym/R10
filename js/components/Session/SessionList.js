@@ -13,9 +13,9 @@ import { colors } from '../../config/styles';
 const SessionList = ({data, currentNavigatorUID}) => {
   return(
     <SectionList
-      renderItem={({item}) => {
+      renderItem={({item,index}) => {
         return (
-          <TouchableHighlight onPress={() => goToSession(currentNavigatorUID, item)} underlayColor={colors.lightGrey}>
+          <TouchableHighlight onPress={() => goToSession(currentNavigatorUID, item)} underlayColor={colors.underlayGrey}>
             <View>
               <View style={styles.contentWrapper}>
                 <Text style={styles.sessionTitle}>{item.title}</Text>
@@ -43,7 +43,7 @@ const SessionList = ({data, currentNavigatorUID}) => {
         )  
       }}
       sections={data}
-     
+      keyExtractor={(item, index) => index}
     />
 
   )

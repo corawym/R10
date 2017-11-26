@@ -6,7 +6,7 @@ export const colors = {
   mediumGrey: '#999999',
   lightGrey: '#e6e6e6',
   blue: '#8797D6',
-
+  underlayGrey: 'rgba(230, 230, 230 , 0.5)'
 };
 
 // import { colors } from './config/styles'

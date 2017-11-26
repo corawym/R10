@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableHighlight } from 'react-native';
 import PropTypes from 'prop-types';
 
+import CustomButton from '../../components/CustomButton';
 import { styles } from './styles';
 
 const Speaker = ({speakerData}) => {
@@ -20,6 +21,12 @@ const Speaker = ({speakerData}) => {
           <Text style={styles.speakerName}>{speakerData.name}</Text>
         </View>
         <Text style={styles.speakerBio}>{speakerData.bio}</Text>
+
+        <TouchableHighlight>
+          <View> 
+            <CustomButton btnText='Read More on Wikipedia'/>
+          </View>
+        </TouchableHighlight>
 
       </View>
     </View>

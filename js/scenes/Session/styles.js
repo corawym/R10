@@ -81,5 +81,8 @@ export const styles = StyleSheet.create({
         marginRight: margins.marginL
       },
     }),
+  },
+  separatorWrapper: {
+    margin: margins.marginS
   }
 });

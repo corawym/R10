@@ -5,6 +5,6 @@ export const styles = StyleSheet.create({
   separator: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
-    backgroundColor: colors.lightGrey, 
+    backgroundColor: colors.mediumGrey, 
   },
 })
