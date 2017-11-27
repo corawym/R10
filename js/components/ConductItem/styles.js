@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     color: colors.purple,
     fontSize: textSizes.body,
     fontFamily: typography.fontRegular,
+    marginLeft: margins.marginL
   },
   baseText: {
     fontSize: textSizes.body,

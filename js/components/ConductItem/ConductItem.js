@@ -27,7 +27,7 @@ class ConductItem extends Component {
   }
   
   _startAnimation(){
-    LayoutAnimation.easeInEaseOut();
+    
     Animated.parallel([
       Animated.timing(
         this.state.rotation,
@@ -37,7 +37,10 @@ class ConductItem extends Component {
           easing: Easing.linear
         }
       ),
-    ]).start()
+    ]).start(()=>{    
+        this._reset();
+        this._toggleText();
+    })
   }
 
   _reset(){
@@ -47,14 +50,11 @@ class ConductItem extends Component {
   }
 
   _toggleText(){
+    LayoutAnimation.easeInEaseOut();
     const { showText } = this.state;
     this.setState({
       showText: !showText
     })
-    if(showText){
-      this._reset()
-    }
-    this._startAnimation();
   }
 
   static PropTypes = {
@@ -70,16 +70,14 @@ class ConductItem extends Component {
 
     return (
       <View>
-        <TouchableOpacity onPress={() => this._toggleText()}>
+        <TouchableOpacity onPress={() => this._startAnimation()}>
           <View style={styles.titleWrapper}>
 
             <Animated.View 
               style={{
-                width: 16,
-                height: 16,
                 transform:[{rotate:spin}]
               }}>
-              <Text style={styles.rotateText}>{this.state.showText ? `-  `  : `+  `}</Text>
+              <Text style={styles.rotateText}>{this.state.showText ? `-`  : `+`}</Text>
             </Animated.View>
 
             <Text style={styles.title}>{data.title}</Text>
