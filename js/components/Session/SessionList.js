@@ -55,7 +55,9 @@ const SessionList = ({data, currentNavigatorUID, favesData}) => {
 }
 
 SessionList.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  currentNavigatorUID: PropTypes.string.isRequired,
+  favesData: PropTypes.array
 }
 
 export default SessionList;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Session from './Session';
 import realm from '../../config/models';
@@ -26,6 +27,12 @@ class SessionContainer extends Component {
   
   componentWillUnmount = () => {
     realm.removeListener('change', this.updateFave);
+  }
+
+  static propTypes = {
+    sessionData: PropTypes.object.isRequired,
+    speakerData: PropTypes.object.isRequired,
+    favesData: PropTypes.array.isRequired
   }
 
   render() {

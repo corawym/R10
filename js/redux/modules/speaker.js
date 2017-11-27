@@ -35,7 +35,7 @@ export const getSpeaker = (speakerID) => {
 // Reducer
 const initialState = {
   isLoading: false,
-  speakerData: [],
+  speakerData: {},
   errorMsg:'Fail to load'
 }
 

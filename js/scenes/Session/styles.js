@@ -83,6 +83,6 @@ export const styles = StyleSheet.create({
     }),
   },
   separatorWrapper: {
-    margin: margins.marginS
+    marginTop: margins.marginL
   }
 });

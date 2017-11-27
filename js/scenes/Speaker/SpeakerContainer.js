@@ -6,16 +6,13 @@ import Loader from '../../components/Loader';
 
 class SpeakerContainer extends Component {
   static propTypes = {
-
+    speakerData: PropTypes.object.isRequired
   }
 
   render(){
     const { speakerData } = this.props;
-    console.log(speakerData)
     return (
-
-        <Speaker speakerData={speakerData} />
-
+      <Speaker speakerData={speakerData} />
     )
   }
 }

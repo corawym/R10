@@ -32,7 +32,9 @@ class FavesContainer extends Component {
   }
 
   static propTypes = {
-
+    sessionData: PropTypes.array.isRequired,
+    favesData: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired,
   }
 
   render(){

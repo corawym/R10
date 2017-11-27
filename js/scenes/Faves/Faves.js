@@ -23,7 +23,9 @@ const Faves = ({ isLoading, data, favesData }) => {
 }
 
 Faves.propTypes = {
-
+  isLoading: PropTypes.bool.isRequired,
+  data: PropTypes.array.isRequired,
+  favesData: PropTypes.array.isRequired
 }
 
 export default Faves;

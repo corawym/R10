@@ -8,6 +8,7 @@ import { styles } from './styles';
 const Speaker = ({speakerData}) => {
   return(
     <ScrollView style={styles.screenWrapper}>
+      
       <View>
         <Text style={styles.navHeader}>About the Speaker</Text>
       </View>
@@ -29,8 +30,6 @@ const Speaker = ({speakerData}) => {
       </TouchableHighlight>
 
       </View>
-
-      
 
     </ScrollView>
   )

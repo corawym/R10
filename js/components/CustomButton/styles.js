@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     fontSize: textSizes.subhead,
     textAlign: 'center',
     color: 'white',
+    backgroundColor: 'transparent',
     marginTop: margins.marginS,
     marginBottom: margins.marginS,
     marginLeft: margins.marginL,

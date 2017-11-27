@@ -31,6 +31,8 @@ class ScheduleContainer extends Component {
 
   static propTypes = {
     sessionData: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    favesData: PropTypes.array.isRequired
   }
 
   render(){

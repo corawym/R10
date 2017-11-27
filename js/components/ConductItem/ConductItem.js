@@ -30,6 +30,10 @@ class ConductItem extends Component {
     this.animate();
   }
 
+  static PropTypes ={
+    data: PropTypes.array.isRequired
+  }
+
   render() {
     const {data} = this.props
     return (

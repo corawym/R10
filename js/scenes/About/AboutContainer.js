@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
-import { getConduct } from '../../redux/modules/conduct';
 
+import { getConduct } from '../../redux/modules/conduct';
 import About from './About';
 import Loader from '../../components/Loader';
 
@@ -22,13 +21,14 @@ class AboutContainer extends Component {
 
   static propTypes = {
     conductData: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired
   }
 
   render(){
     const { conductData, isLoading } = this.props;
     if (isLoading) {
       return (
-        <Loader />
+        <Loader/>
       );
     } else {
       return (

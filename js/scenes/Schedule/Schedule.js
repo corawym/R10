@@ -21,7 +21,9 @@ const Schedule = ({data, isLoading, favesData}) => {
 }
 
 Schedule.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  favesData: PropTypes.array.isRequired,
 }
 
 export default Schedule;
