@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Session from './Session';
+import Loader from '../../components/Loader';
 import realm from '../../config/models';
 import { getSpeaker } from '../../redux/modules/speaker';
 import { getFaves } from '../../redux/modules/fave';
@@ -36,12 +37,18 @@ class SessionContainer extends Component {
   }
 
   render() {
-    const { sessionData, speakerData, favesData } = this.props;
-    return (
-      <View>
-        <Session sessionData={sessionData} speakerData={speakerData} favesData={favesData} />
-      </View>
-    );
+    const { sessionData, speakerData, favesData, isLoading } = this.props;
+    if (isLoading) {
+      return (
+        <Loader/>
+      );
+    } else {
+      return (
+        <View>
+          <Session sessionData={sessionData} speakerData={speakerData} favesData={favesData} />
+        </View>
+      )
+    }
   }
 }
 
