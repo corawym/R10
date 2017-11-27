@@ -12,4 +12,4 @@ R10 is a mobile application using React Native for an upcoming developer confere
 
 
 ## Screenshots
-![R10 schedule page](src/R10-schedule.png "R10 schedule page")
+![R10 schedule page](src/r10-screenshot-schedule.jpg "R10 schedule page")

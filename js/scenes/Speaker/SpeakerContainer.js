@@ -17,6 +17,4 @@ class SpeakerContainer extends Component {
   }
 }
 
-
-
 export default SpeakerContainer
