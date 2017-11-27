@@ -4,7 +4,6 @@ import {
   DrawerNavigation,
   DrawerNavigationItem,
 } from '@expo/ex-navigation';
-import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Router from './routes';
@@ -53,6 +52,7 @@ class NavigationLayout extends Component {
 
   render() {
     return (
+      
       <DrawerNavigation
         id='schedule'
         initialItem='schedule'

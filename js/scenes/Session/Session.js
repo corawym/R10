@@ -30,19 +30,21 @@ const Session = ({sessionData, speakerData }) => {
 
         <Text style={styles.subheadPresent}>Presented by:</Text>
       </View>
-
-      <TouchableHighlight onPress={() => goToSpeaker(speakerData)} underlayColor={colors.underlayGrey}>
-        <View>
-          <View style={styles.speakerWrapper}>
-            <Image 
-              style={styles.speakerImage}
-              source={{uri: speakerData.image}}
-            />
-            <Text style={styles.subheadPresenter}>{speakerData.name}</Text>
+      {
+        speakerData ? 
+          <TouchableHighlight onPress={() => goToSpeaker(speakerData)} underlayColor={colors.underlayGrey}>
+          <View>
+            <View style={styles.speakerWrapper}>
+              <Image 
+                style={styles.speakerImage}
+                source={{uri: speakerData.image}}
+              />
+              <Text style={styles.subheadPresenter}>{speakerData.name}</Text>
+            </View>
           </View>
-        </View>
-      </TouchableHighlight>
-
+        </TouchableHighlight> : false
+      }
+      
       <View style={styles.separatorWrapper}>
         <Separator/>
       </View>

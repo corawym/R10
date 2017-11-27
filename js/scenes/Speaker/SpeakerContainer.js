@@ -12,7 +12,9 @@ class SpeakerContainer extends Component {
     const { speakerData } = this.props;
     console.log(speakerData)
     return (
-      <Speaker speakerData={speakerData} />
+
+        <Speaker speakerData={speakerData} />
+
     )
   }
 }

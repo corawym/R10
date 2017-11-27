@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableHighlight } from 'react-native';
+
 import PropTypes from 'prop-types';
 
 import CustomButton from '../../components/CustomButton';
@@ -7,9 +8,9 @@ import { styles } from './styles';
 
 const Speaker = ({speakerData}) => {
   return(
-    <View style={styles.screenWrapper}>
+    <ScrollView style={styles.screenWrapper}>
       <View>
-        <Text>About the Speaker</Text>
+        <Text style={styles.navHeader}>About the Speaker</Text>
       </View>
 
       <View style={styles.speakerWrapper}>
@@ -23,13 +24,16 @@ const Speaker = ({speakerData}) => {
         <Text style={styles.speakerBio}>{speakerData.bio}</Text>
 
         <TouchableHighlight>
-          <View> 
-            <CustomButton btnText='Read More on Wikipedia'/>
-          </View>
-        </TouchableHighlight>
+        <View> 
+          <CustomButton btnText='Read More on Wikipedia'/>
+        </View>
+      </TouchableHighlight>
 
       </View>
-    </View>
+
+      
+
+    </ScrollView>
   )
 }
 

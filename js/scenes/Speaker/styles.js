@@ -5,13 +5,21 @@ import { colors, typography, textSizes, margins } from '../../config/styles';
 export const styles = StyleSheet.create({
   screenWrapper: {
     backgroundColor: 'black',
-    paddingTop: margins.marginL,
+    paddingTop: margins.marginS + margins.marginL,
     paddingLeft: margins.marginS,
     paddingRight: margins.marginS
   },
+  navHeader: {
+    color: 'white',
+    fontSize: textSizes.title3,
+    fontFamily: typography.fontRegular,
+    textAlign: 'center'
+  },
   speakerWrapper: {
     backgroundColor: 'white',
+    marginTop: margins.marginL,
     paddingTop: margins.marginL,
+    paddingBottom: margins.marginL,
     paddingLeft: margins.marginL - margins.marginS,
     paddingRight: margins.marginL - margins.marginS,
   },
@@ -41,6 +49,5 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontLight,
     lineHeight: textSizes.title2,
     marginTop: margins.marginL,
-    marginBottom: margins.marginL
   }
 });

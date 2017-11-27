@@ -25,7 +25,9 @@ export default class App extends Component {
 
   render() {
     return (
+        
       <Provider store={Store}>
+        
         
         <NavigationProvider context={navigationContext} >
           <StackNavigation 
@@ -36,6 +38,7 @@ export default class App extends Component {
         </NavigationProvider>
       
       </Provider>
+
     );
   }
 }
