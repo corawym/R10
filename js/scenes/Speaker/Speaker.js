@@ -16,7 +16,7 @@ const Speaker = ({speakerData}) => {
           <Icon 
             name={ Platform.OS === 'ios' ? "ios-close" : "md-close" } 
             color='white'
-            size={40}
+            size={ Platform.OS === 'ios' ? 40 : 20 } 
             style={styles.navIcon}>  
           </Icon> 
         </TouchableHighlight>

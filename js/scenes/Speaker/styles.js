@@ -6,12 +6,25 @@ export const styles = StyleSheet.create({
   screenWrapper: {
     backgroundColor: 'black',
     paddingTop: margins.marginL,
-    paddingLeft: margins.marginS,
-    paddingRight: margins.marginS
+    ...Platform.select({
+      ios: {
+        paddingLeft: margins.marginS,
+        paddingRight: margins.marginS,
+      },
+      android: {
+        paddingLeft: margins.marginL,
+        paddingRight: margins.marginL
+      },
+    }),
   },
   navHeaderWrapper:{
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    ...Platform.select({
+      android: {
+        marginBottom: margins.marginL,
+      },
+    }),
   },
   navIcon: {
     flex:0.1
@@ -26,7 +39,6 @@ export const styles = StyleSheet.create({
   },
   speakerWrapper: {
     backgroundColor: 'white',
-    // marginTop: margins.marginL,
     paddingTop: margins.marginL,
     paddingBottom: margins.marginL,
     paddingLeft: margins.marginL - margins.marginS,

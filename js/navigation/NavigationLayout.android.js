@@ -4,6 +4,7 @@ import {
   DrawerNavigation,
   DrawerNavigationItem,
 } from '@expo/ex-navigation';
+import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Router from './routes';

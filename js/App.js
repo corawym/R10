@@ -24,11 +24,9 @@ const navigationContext = new NavigationContext({
 export default class App extends Component {
 
   render() {
-    return (
-        
+    return (    
       <Provider store={Store}>
-        
-        
+    
         <NavigationProvider context={navigationContext} >
           <StackNavigation 
             navigatorUID="root"
@@ -38,7 +36,6 @@ export default class App extends Component {
         </NavigationProvider>
       
       </Provider>
-
     );
   }
 }
