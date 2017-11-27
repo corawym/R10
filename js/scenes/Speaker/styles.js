@@ -5,19 +5,28 @@ import { colors, typography, textSizes, margins } from '../../config/styles';
 export const styles = StyleSheet.create({
   screenWrapper: {
     backgroundColor: 'black',
-    paddingTop: margins.marginS + margins.marginL,
+    paddingTop: margins.marginL,
     paddingLeft: margins.marginS,
     paddingRight: margins.marginS
   },
+  navHeaderWrapper:{
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  navIcon: {
+    flex:0.1
+  },
   navHeader: {
+    flex:0.9,
     color: 'white',
     fontSize: textSizes.title3,
     fontFamily: typography.fontRegular,
-    textAlign: 'center'
+    textAlign: 'center',
+
   },
   speakerWrapper: {
     backgroundColor: 'white',
-    marginTop: margins.marginL,
+    // marginTop: margins.marginL,
     paddingTop: margins.marginL,
     paddingBottom: margins.marginL,
     paddingLeft: margins.marginL - margins.marginS,

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, Image, TouchableHighlight } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableHighlight, Platform } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/Ionicons';
 
+import { closeSpeaker } from '../../lib/navigationHelpers';
 import CustomButton from '../../components/CustomButton';
 import { styles } from './styles';
 
@@ -9,7 +11,15 @@ const Speaker = ({speakerData}) => {
   return(
     <ScrollView style={styles.screenWrapper}>
       
-      <View>
+      <View style={styles.navHeaderWrapper}>
+        <TouchableHighlight onPress={() => closeSpeaker()}>
+          <Icon 
+            name={ Platform.OS === 'ios' ? "ios-close" : "md-close" } 
+            color='white'
+            size={40}
+            style={styles.navIcon}>  
+          </Icon> 
+        </TouchableHighlight>
         <Text style={styles.navHeader}>About the Speaker</Text>
       </View>
 
