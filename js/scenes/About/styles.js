@@ -36,5 +36,10 @@ export const styles = StyleSheet.create({
   },
   aboutIntroWrapper: {
     marginTop: margins.marginL
+  },
+  footer: {
+    fontSize: textSizes.tabBar,
+    fontFamily: typography.fontLight,
+    marginTop: margins.marginL,
   }
 });

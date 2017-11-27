@@ -45,6 +45,9 @@ const About = ({data}) => {
           }
         </View>
 
+        <Separator/>
+        <Text style={styles.footer}>© RED Academy 2017</Text>
+
       </View>  
     </ScrollView>
   )
