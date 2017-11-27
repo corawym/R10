@@ -5,10 +5,6 @@ import {
   View, 
   Text, 
   Image, 
-  // LayoutAnimation,
-  // TouchableOpacity,
-  // Platform,
-  // UIManager
 } from 'react-native';
 
 import Separator from '../../components/Separator';

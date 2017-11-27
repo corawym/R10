@@ -71,7 +71,7 @@ class ConductItem extends Component {
     return (
       <View>
         <TouchableOpacity onPress={() => this._toggleText()}>
-          <Text style={styles.titleWrapper}>
+          <View style={styles.titleWrapper}>
 
             <Animated.View 
               style={{
@@ -83,7 +83,7 @@ class ConductItem extends Component {
             </Animated.View>
 
             <Text style={styles.title}>{data.title}</Text>
-          </Text>
+          </View>
         </TouchableOpacity>
         {this.state.showText ? <Text style={styles.baseText}>{data.description}</Text> : false}
       </View>  

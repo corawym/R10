@@ -5,22 +5,27 @@ import { colors, typography, textSizes, margins } from '../../config/styles';
 
 export const styles = StyleSheet.create({
   titleWrapper: {
+    marginBottom: margins.marginL,
+    flexDirection: 'row'
+  },
+  rotateText:{
+    backgroundColor: 'transparent',
     color: colors.purple,
     fontSize: textSizes.body,
     fontFamily: typography.fontRegular,
-    marginBottom: margins.marginL
+  },
+  title: {
+    color: colors.purple,
+    fontSize: textSizes.body,
+    fontFamily: typography.fontRegular,
   },
   baseText: {
     fontSize: textSizes.body,
     fontFamily: typography.fontLight,
     marginBottom: margins.marginL,
     lineHeight: textSizes.title2,
-    
   },
-  rotateText:{
-    backgroundColor: 'transparent',
-    color: colors.purple,
-  },
+  
   animatedView:{
     width: 16,
     height: 16
