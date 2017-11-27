@@ -10,10 +10,11 @@ import { styles } from './styles';
 import { colors } from '../../config/styles';
 
 
-const SessionList = ({data, currentNavigatorUID}) => {
+const SessionList = ({data, currentNavigatorUID, favesData}) => {
   return(
     <SectionList
       renderItem={({item,index}) => {
+        const faved = favesData.indexOf(item.session_id) > -1;
         return (
           <TouchableHighlight onPress={() => goToSession(currentNavigatorUID, item)} underlayColor={colors.underlayGrey}>
             <View>
@@ -22,15 +23,19 @@ const SessionList = ({data, currentNavigatorUID}) => {
 
                 <View style={styles.sessionSubtitleWrapper}>
                   <Text style={styles.sessionSubtitle}>{item.location}</Text>
-                  <Icon 
-                    name={ Platform.OS === 'ios' ? "ios-heart" : "md-heart" } 
-                    color={colors.red}
-                    size={14}>  
-                  </Icon>
+                  {
+                    faved ? 
+                    <Icon 
+                      name={ Platform.OS === 'ios' ? "ios-heart" : "md-heart" } 
+                      color={colors.red}
+                      size={14}>  
+                    </Icon> 
+                    : false
+                  }
                 </View>
                 
               </View>
-              <Separator />
+              <Separator/>
             </View>
           </TouchableHighlight>
         )  

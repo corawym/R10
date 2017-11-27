@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
+
 import Session from './Session';
-import { getSpeaker } from '../../redux/modules/speaker'
+import realm from '../../config/models';
+import { getSpeaker } from '../../redux/modules/speaker';
+import { getFaves } from '../../redux/modules/fave';
 
 class SessionContainer extends Component {
   static route = {
@@ -10,21 +13,35 @@ class SessionContainer extends Component {
       title: 'Session',
     }
   }
+
   componentDidMount = () => {
-    this.props.dispatch(getSpeaker(this.props.sessionData.speaker))
+    this.props.dispatch(getSpeaker(this.props.sessionData.speaker));
+    this.updateFave();
+    realm.addListener('change', this.updateFave);  
   }
+
+  updateFave = () => {
+    this.props.dispatch(getFaves());
+  }
+  
+  componentWillUnmount = () => {
+    realm.removeListener('change', this.updateFave);
+  }
+
   render() {
-    const { sessionData, speakerData } = this.props;
+    const { sessionData, speakerData, favesData } = this.props;
     return (
       <View>
-        <Session sessionData={sessionData} speakerData={speakerData} />
+        <Session sessionData={sessionData} speakerData={speakerData} favesData={favesData} />
       </View>
     );
   }
 }
+
 const mapStateToProps = store => {
   return {
-    speakerData: store.speaker.speakerData
+    speakerData: store.speaker.speakerData,
+    favesData: store.fave.favesData
   }
 }
 

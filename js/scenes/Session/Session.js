@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import { createFaves, deleteFaves } from '../../config/models';
+
 import Separator from '../../components/Separator';
 import CustomButton from '../../components/CustomButton';
 import { goToSpeaker } from '../../lib/navigationHelpers';
@@ -11,17 +13,22 @@ import { styles } from './styles';
 import { colors } from '../../config/styles';
 
 
-const Session = ({sessionData, speakerData }) => {
+const Session = ({sessionData, speakerData, favesData }) => {
+  const faved = favesData.indexOf(sessionData.session_id) > -1;
   return (
     <View>
       <View style={styles.sessionContainer}>
         <View style={styles.subheadWrapper}>
           <Text style={styles.subheadLocation}>{sessionData.location}</Text>
-          <Icon 
-            name={ Platform.OS === 'ios' ? "ios-heart" : "md-heart" } 
-            color={colors.red}
-            size={14}>  
-          </Icon>
+          {
+            faved ? 
+            <Icon 
+              name={ Platform.OS === 'ios' ? "ios-heart" : "md-heart" } 
+              color={colors.red}
+              size={14}>  
+            </Icon> 
+            : false
+          }
         </View>
 
         <Text style={styles.title}>{sessionData.title}</Text>
@@ -44,14 +51,14 @@ const Session = ({sessionData, speakerData }) => {
           </View>
         </TouchableHighlight> : false
       }
-      
+
       <View style={styles.separatorWrapper}>
         <Separator/>
       </View>
 
-      <TouchableHighlight>
+      <TouchableHighlight onPress={faved ? () => deleteFaves(sessionData.session_id) : () => createFaves(sessionData.session_id)}>
         <View> 
-          <CustomButton btnText='Add to Faves'/>
+          <CustomButton btnText={faved ? 'Remove from Faves' : 'Add to Faves'} />
         </View>
       </TouchableHighlight>
       

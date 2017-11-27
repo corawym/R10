@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Image, TouchableHighlight } from 'react-native';
-
 import PropTypes from 'prop-types';
 
 import CustomButton from '../../components/CustomButton';

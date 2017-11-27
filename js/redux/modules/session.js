@@ -1,4 +1,3 @@
-import { formatSessionData } from '../../lib/dataFormatHelpers'
 // Action
 const GET_SESSION_BEGIN = 'GET_SESSION_BEGIN';
 const GET_SESSION_SUCCESS = 'GET_SESSION_SUCCESS';
@@ -25,7 +24,7 @@ export const getSession = () => {
     .then(resp => resp.json())
     .then(data => {
       // console.log(data);
-      dispatch(getSessionSuccess(formatSessionData(data)));
+      dispatch(getSessionSuccess(data));
     })
     .catch(error => {
       dispatch(getSessionError(error));

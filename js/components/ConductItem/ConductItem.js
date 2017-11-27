@@ -5,8 +5,6 @@ import {
   Text, 
   LayoutAnimation,
   TouchableOpacity,
-  // Platform,
-  // UIManager
 } from 'react-native';
 
 import { styles } from './styles';
@@ -34,19 +32,19 @@ class ConductItem extends Component {
 
   render() {
     const {data} = this.props
-    console.log(this.state.showText)
     return (
       <View>
         <TouchableOpacity onPress={() => this.toggleText()}>
           <Text style={styles.titleWrapper}>
             <Text>+ </Text>
-            <Text style={styles.title}> {data.title}</Text>
+            <Text style={styles.title}>{data.title}</Text>
           </Text>
         </TouchableOpacity>
         {this.state.showText ? <Text style={styles.baseText}>{data.description}</Text> : false}
       </View>  
     );
   }
+
 }
 
 export default ConductItem;

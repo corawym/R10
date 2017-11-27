@@ -19,13 +19,11 @@ export const getSpeakerError = (error) => ({
 
 // Async action creator
 export const getSpeaker = (speakerID) => {
-  console.log(speakerID);
   return (dispatch) => {
     dispatch(getSpeakerBegin());
     fetch(`https://r10app-95fea.firebaseio.com/speakers.json?orderBy="speaker_id"&equalTo="${speakerID}"`)
     .then(resp => resp.json())
     .then(data => {
-      console.log(data);
       dispatch(getSpeakerSuccess(formatDataObject(data)));
     })
     .catch(error => {

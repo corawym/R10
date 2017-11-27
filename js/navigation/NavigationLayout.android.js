@@ -11,7 +11,6 @@ import GradientBackground from '../components/GradientBackground';
 import { colors, typography, textSizes, margins } from '../config/styles';
 import { styles } from './styles';
 
-
 const defaultRouteConfig = {
   navigationBar: {
     tintColor: 'white',
