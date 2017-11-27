@@ -14,6 +14,15 @@ export const styles = StyleSheet.create({
     fontSize: textSizes.body,
     fontFamily: typography.fontLight,
     marginBottom: margins.marginL,
-    lineHeight: textSizes.title2
+    lineHeight: textSizes.title2,
+    
   },
+  rotateText:{
+    backgroundColor: 'transparent',
+    color: colors.purple,
+  },
+  animatedView:{
+    width: 16,
+    height: 16
+  }
 })
