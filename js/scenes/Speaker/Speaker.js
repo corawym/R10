@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, Image, TouchableHighlight, Platform } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableHighlight, Platform, Linking, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -33,11 +33,11 @@ const Speaker = ({speakerData}) => {
         </View>
         <Text style={styles.speakerBio}>{speakerData.bio}</Text>
 
-        <TouchableHighlight>
+        <TouchableOpacity onPress={() => Linking.openURL(`${speakerData.url}`)}>
         <View> 
           <CustomButton btnText='Read More on Wikipedia'/>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
 
       </View>
 
