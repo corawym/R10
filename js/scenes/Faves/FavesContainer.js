@@ -7,28 +7,10 @@ import realm from '../../config/models';
 import { getFaves } from '../../redux/modules/fave';
 
 class FavesContainer extends Component {
-
   static route = {
     navigationBar: {
       title: 'Faves',
-    }
-  }
-
-  constructor() {
-    super();
-  }
-
-  componentDidMount = () => {
-    this.updateFave();
-    realm.addListener('change', this.updateFave);
-  }
-
-  updateFave = () => {
-    this.props.dispatch(getFaves());
-  }
-
-  componentWillUnmount = () =>{
-    realm.removeListener('change', this.updateFave);
+    },
   }
 
   static propTypes = {
@@ -37,20 +19,33 @@ class FavesContainer extends Component {
     isLoading: PropTypes.bool.isRequired,
   }
 
-  render(){
+  componentDidMount = () => {
+    this.updateFave();
+    realm.addListener('change', this.updateFave);
+  }
+
+  componentWillUnmount = () => {
+    realm.removeListener('change', this.updateFave);
+  }
+
+  updateFave = () => {
+    this.props.dispatch(getFaves());
+  }
+
+  render() {
     const { sessionData, favesData, isLoading } = this.props;
-    return(
+    return (
       <Faves data={sessionData} favesData={favesData} isLoading={isLoading} />
-    )    
+    );
   }
 }
 
-const mapStateToProps = store =>{
+const mapStateToProps = store => {
   return {
     favesData: store.fave.favesData,
     sessionData: store.session.sessionData,
-    isLoading: store.session.isLoading
-  }
-}
+    isLoading: store.session.isLoading,
+  };
+};
 
 export default connect(mapStateToProps)(FavesContainer);

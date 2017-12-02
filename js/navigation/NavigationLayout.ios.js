@@ -10,59 +10,54 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Router from './routes';
 import GradientBackground from '../components/GradientBackground';
 import { colors, typography, textSizes } from '../config/styles';
-import { styles } from './styles';
+import styles from './styles';
 
 
 const defaultRouteConfig = {
   navigationBar: {
     tintColor: 'white',
-    titleStyle: {fontFamily: typography.fontRegular},
+    titleStyle: { fontFamily: typography.fontRegular },
     renderBackground: () => (
-      <GradientBackground colors={[colors.purple, colors.red]} gradientStyles={styles.gradientBg}/>
-    )
-  }
-}
+      <GradientBackground colors={[colors.purple, colors.red]} gradientStyles={styles.gradientBg} />
+    ),
+  },
+};
 
-
-class NavigationLayout extends Component{
-  // static route = {
-  //   navigationBar: {
-  //     visible: false,    
-  //   }
-  // }
-
+class NavigationLayout extends Component {
   renderIcon(iconName, isSelected) {
-    return(
+    return (
       <Icon
         name={iconName}
         size={20}
         color={isSelected ? 'white' : colors.mediumGrey}
       />
-    )
+    );
   }
 
-  renderTitle(isSelected, title){
-    return(
-      <Text 
+  renderTitle(isSelected, title) {
+    return (
+      <Text
         style={{
-          fontFamily: typography.fontRegular, 
-          fontSize: textSizes.tabBar, 
-          color: isSelected ? 'white' : colors.mediumGrey
-        }}>
+          fontFamily: typography.fontRegular,
+          fontSize: textSizes.tabBar,
+          color: isSelected ? 'white' : colors.mediumGrey,
+        }}
+      >
         {title}
       </Text>
-    )
+    );
   }
 
-  render(){
-    return(
-      <TabNavigation initialTab="schedule" tabBarColor='black'>
+  render() {
+    return (
+      <TabNavigation initialTab="schedule" tabBarColor="black" >
 
         <TabItem
           id="schedule"
           title="Schedule"
           renderTitle={this.renderTitle}
-          renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected) }>
+          renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected)}
+        >
           <StackNavigation
             id="schedule"
             navigatorUID="schedule"
@@ -75,7 +70,8 @@ class NavigationLayout extends Component{
           id="faves"
           title="Faves"
           renderTitle={this.renderTitle}
-          renderIcon={(isSelected) => this.renderIcon('ios-heart', isSelected) }>
+          renderIcon={(isSelected) => this.renderIcon('ios-heart', isSelected)}
+        >
           <StackNavigation
             id="faves"
             navigatorUID="faves"
@@ -88,7 +84,8 @@ class NavigationLayout extends Component{
           id="about"
           title="About"
           renderTitle={this.renderTitle}
-          renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected) }>
+          renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected)}
+        >
           <StackNavigation
             id="about"
             navigatorUID="about"
@@ -96,11 +93,9 @@ class NavigationLayout extends Component{
             defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
-        
       </TabNavigation>
     );
   }
-
-  
 }
+
 export default NavigationLayout;

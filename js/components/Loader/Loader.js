@@ -3,16 +3,14 @@ import { ActivityIndicator, View } from 'react-native';
 
 import { styles } from './styles';
 
-const Loader = () => {
-  return (
-    <View style={styles.loaderWrapper}>
-      <ActivityIndicator 
-        animating={true} 
-        size="small" 
-        color="black" 
-      />
-    </View>
-  )
-}
+const Loader = () => (
+  <View style={styles.loaderWrapper}>
+    <ActivityIndicator
+      animating
+      size="small"
+      color="black"
+    />
+  </View>
+);
 
 export default Loader;

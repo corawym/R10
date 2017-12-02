@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { typography, textSizes, margins } from '../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   buttonWrapper: {
     alignItems: 'center',
     marginTop: margins.marginL,
@@ -23,4 +23,6 @@ export const styles = StyleSheet.create({
     marginLeft: margins.marginL,
     marginRight: margins.marginL,
   },
-})
+});
+
+export default styles;

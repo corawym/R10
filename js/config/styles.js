@@ -1,4 +1,4 @@
-import { Platform, StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 
 export const colors = {
   red: '#cf392a',
@@ -6,7 +6,7 @@ export const colors = {
   mediumGrey: '#999999',
   lightGrey: '#e6e6e6',
   blue: '#8797D6',
-  underlayGrey: 'rgba(230, 230, 230 , 0.5)'
+  underlayGrey: 'rgba(230, 230, 230 , 0.5)',
 };
 
 // import { colors } from './config/styles'
@@ -17,13 +17,13 @@ export const typography = {
 
   ...Platform.select({
     ios: {
-      fontRegular: 'Montserrat' 
+      fontRegular: 'Montserrat',
     },
     android: {
-      fontRegular: 'Montserrat-Regular'
+      fontRegular: 'Montserrat-Regular',
     },
   }),
-}
+};
 
 export const textSizes = {
   title1: 22,
@@ -32,10 +32,10 @@ export const textSizes = {
   bodyL: 16,
   body: 15,
   subhead: 14,
-  tabBar: 12
-}
+  tabBar: 12,
+};
 
 export const margins = {
-  marginS: 8, 
-  marginL: 20
-}
+  marginS: 8,
+  marginL: 20,
+};

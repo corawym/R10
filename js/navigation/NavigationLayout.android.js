@@ -10,18 +10,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Router from './routes';
 import GradientBackground from '../components/GradientBackground';
 import { colors, typography, textSizes, margins } from '../config/styles';
-import { styles } from './styles';
+import styles from './styles';
 
 const defaultRouteConfig = {
   navigationBar: {
     tintColor: 'white',
-    titleStyle: {fontFamily: typography.fontRegular},
+    titleStyle: { fontFamily: typography.fontRegular },
     renderBackground: () => (
-      <GradientBackground colors={[colors.purple, colors.red]} gradientStyles={styles.gradientBg}/>
-    ) 
-  }
-}
-
+      <GradientBackground colors={[colors.purple, colors.red]} gradientStyles={styles.gradientBg} />
+    ),
+  },
+},
 
 class NavigationLayout extends Component {
   // state = {  }
@@ -52,7 +51,6 @@ class NavigationLayout extends Component {
 
   render() {
     return (
-      
       <DrawerNavigation
         id='schedule'
         initialItem='schedule'
@@ -104,7 +102,6 @@ class NavigationLayout extends Component {
       </DrawerNavigation>
     );
   }
-
 }
 
 export default NavigationLayout;

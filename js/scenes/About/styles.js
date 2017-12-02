@@ -1,15 +1,15 @@
 import { StyleSheet, Platform } from 'react-native';
 
-import { colors, typography, textSizes, margins } from '../../config/styles';
+import { typography, textSizes, margins } from '../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   screenMargin: {
     ...Platform.select({
       ios: {
-        margin: margins.marginS
+        margin: margins.marginS,
       },
       android: {
-        margin: margins.marginL
+        margin: margins.marginL,
       },
     }),
   },
@@ -23,23 +23,25 @@ export const styles = StyleSheet.create({
     fontSize: textSizes.body,
     fontFamily: typography.fontLight,
     marginBottom: margins.marginL,
-    lineHeight: textSizes.title2
+    lineHeight: textSizes.title2,
   },
   aboutTitle: {
     fontSize: textSizes.title1,
     fontFamily: typography.fontRegular,
-    marginBottom: margins.marginL
+    marginBottom: margins.marginL,
   },
   logoImage: {
-    width: 200, 
+    width: 200,
     height: 50,
   },
   aboutIntroWrapper: {
-    marginTop: margins.marginL
+    marginTop: margins.marginL,
   },
   footer: {
     fontSize: textSizes.tabBar,
     fontFamily: typography.fontLight,
     marginTop: margins.marginL,
-  }
+  },
 });
+
+export default styles;

@@ -9,11 +9,10 @@ import { createFaves, deleteFaves } from '../../config/models';
 import Separator from '../../components/Separator';
 import CustomButton from '../../components/CustomButton';
 import { goToSpeaker } from '../../lib/navigationHelpers';
-import { styles } from './styles';
+import styles from './styles';
 import { colors } from '../../config/styles';
 
-
-const Session = ({sessionData, speakerData, favesData }) => {
+const Session = ({ sessionData, speakerData, favesData }) => {
   const faved = favesData.indexOf(sessionData.session_id) > -1;
   return (
     <ScrollView>
@@ -21,12 +20,12 @@ const Session = ({sessionData, speakerData, favesData }) => {
         <View style={styles.subheadWrapper}>
           <Text style={styles.subheadLocation}>{sessionData.location}</Text>
           {
-            faved ? 
-            <Icon 
-              name={ Platform.OS === 'ios' ? "ios-heart" : "md-heart" } 
-              color={colors.red}
-              size={14}>  
-            </Icon> 
+            faved ?
+              <Icon
+                name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                color={colors.red}
+                size={14}
+              />
             : false
           }
         </View>
@@ -38,38 +37,44 @@ const Session = ({sessionData, speakerData, favesData }) => {
         <Text style={styles.subheadPresent}>Presented by:</Text>
       </View>
       {
-        speakerData ? 
-          <TouchableHighlight onPress={() => goToSpeaker(speakerData)} underlayColor={colors.underlayGrey}>
-          <View>
-            <View style={styles.speakerWrapper}>
-              <Image 
-                style={styles.speakerImage}
-                source={{uri: speakerData.image}}
-              />
-              <Text style={styles.subheadPresenter}>{speakerData.name}</Text>
+        speakerData ?
+          <TouchableHighlight
+            onPress={() => goToSpeaker(speakerData)}
+            underlayColor={colors.underlayGrey}
+          >
+            <View>
+              <View style={styles.speakerWrapper}>
+                <Image
+                  style={styles.speakerImage}
+                  source={{ uri: speakerData.image }}
+                />
+                <Text style={styles.subheadPresenter}>{speakerData.name}</Text>
+              </View>
             </View>
-          </View>
-        </TouchableHighlight> : false
+          </TouchableHighlight>
+        : false
       }
 
       <View style={styles.separatorWrapper}>
-        <Separator/>
+        <Separator />
       </View>
-
-      <TouchableOpacity onPress={faved ? () => deleteFaves(sessionData.session_id) : () => createFaves(sessionData.session_id)}>
-        <View> 
+      <TouchableOpacity
+        onPress={faved ?
+          () => deleteFaves(sessionData.session_id) :
+          () => createFaves(sessionData.session_id)}
+      >
+        <View>
           <CustomButton btnText={faved ? 'Remove from Faves' : 'Add to Faves'} />
         </View>
       </TouchableOpacity>
-      
     </ScrollView>
-  )
+  );
 };
 
 Session.PropTypes = {
   sessionData: PropTypes.array.isRequired,
   speakerData: PropTypes.object,
-  favesData: PropTypes.array.isRequired
-}
+  favesData: PropTypes.array.isRequired,
+};
 
 export default Session;

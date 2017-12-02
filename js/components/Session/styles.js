@@ -2,7 +2,7 @@ import { StyleSheet, Platform } from 'react-native';
 
 import { colors, typography, textSizes, margins } from '../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   sessionTitle: {
     fontSize: textSizes.body,
     fontFamily: typography.fontRegular,
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   sessionSubtitle: {
     fontSize: textSizes.subhead,
     fontFamily: typography.fontRegular,
-    color: colors.mediumGrey
+    color: colors.mediumGrey,
   },
   sectionTime: {
     fontSize: textSizes.subhead,
@@ -21,18 +21,18 @@ export const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         marginLeft: margins.marginS,
-        marginRight: margins.marginS
+        marginRight: margins.marginS,
       },
       android: {
         marginLeft: margins.marginL,
-        marginRight: margins.marginL
+        marginRight: margins.marginL,
       },
     }),
   },
   sessionSubtitleWrapper: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   contentWrapper: {
     marginTop: margins.marginL,
@@ -40,11 +40,11 @@ export const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         marginLeft: margins.marginS,
-        marginRight: margins.marginS
+        marginRight: margins.marginS,
       },
       android: {
         marginLeft: margins.marginL,
-        marginRight: margins.marginL
+        marginRight: margins.marginL,
       },
     }),
   },
@@ -52,6 +52,8 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.lightGrey,
   },
   touchable: {
-    backgroundColor: 'red'
-  }
-})
+    backgroundColor: 'red',
+  },
+});
+
+export default styles;

@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Speaker from './Speaker';
-import Loader from '../../components/Loader';
 
-class SpeakerContainer extends Component {
-  static propTypes = {
-    speakerData: PropTypes.object.isRequired
-  }
+const SpeakerContainer = ({ speakerData }) => (
+  <Speaker speakerData={speakerData} />
+);
 
-  render(){
-    const { speakerData } = this.props;
-    return (
-      <Speaker speakerData={speakerData} />
-    )
-  }
-}
+SpeakerContainer.propTypes = {
+  speakerData: PropTypes.object.isRequired,
+};
 
-export default SpeakerContainer
+export default SpeakerContainer;

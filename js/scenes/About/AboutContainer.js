@@ -7,45 +7,39 @@ import About from './About';
 import Loader from '../../components/Loader';
 
 class AboutContainer extends Component {
-
   static route = {
     navigationBar: {
       title: 'About',
-    }
-  }
-
-  componentDidMount() {
-    this.props.dispatch(getConduct());   
+    },
   }
 
   static propTypes = {
     conductData: PropTypes.array.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    isLoading: PropTypes.bool.isRequired,
   }
 
-  render(){
+  componentDidMount() {
+    this.props.dispatch(getConduct());
+  }
+
+  render() {
     const { conductData, isLoading } = this.props;
     if (isLoading) {
       return (
-        <Loader/>
+        <Loader />
       );
-    } else {
-      return (
-        <About data={conductData}/>
-      )
     }
+    return (
+      <About data={conductData} />
+    );
   }
-
 }
 
 const mapStateToProps = store => {
   return {
     conductData: store.conduct.conductData,
-    isLoading: store.conduct.isLoading
-  }
-}
+    isLoading: store.conduct.isLoading,
+  };
+};
 
-export default connect(mapStateToProps)(AboutContainer)
-
-
-
+export default connect(mapStateToProps)(AboutContainer);

@@ -13,50 +13,53 @@ class SessionContainer extends Component {
   static route = {
     navigationBar: {
       title: 'Session',
-    }
-  }
-
-  componentDidMount = () => {
-    this.props.dispatch(getSpeaker(this.props.sessionData.speaker));
-    this.updateFave();
-    realm.addListener('change', this.updateFave);  
-  }
-
-  updateFave = () => {
-    this.props.dispatch(getFaves());
-  }
-  
-  componentWillUnmount = () => {
-    realm.removeListener('change', this.updateFave);
+    },
   }
 
   static propTypes = {
     sessionData: PropTypes.object.isRequired,
     speakerData: PropTypes.object.isRequired,
-    favesData: PropTypes.array.isRequired
+    favesData: PropTypes.array.isRequired,
+    // isLoading: PropTypes.bool,
+  }
+
+  componentDidMount = () => {
+    this.props.dispatch(getSpeaker(this.props.sessionData.speaker));
+    this.updateFave();
+    realm.addListener('change', this.updateFave);
+  }
+
+  componentWillUnmount = () => {
+    realm.removeListener('change', this.updateFave);
+  }
+
+  updateFave = () => {
+    this.props.dispatch(getFaves());
   }
 
   render() {
-    const { sessionData, speakerData, favesData, isLoading } = this.props;
+    const {
+      sessionData, speakerData, favesData, isLoading,
+    } = this.props;
+
     if (isLoading) {
       return (
-        <Loader/>
+        <Loader />
       );
-    } else {
-      return (
-        <View>
-          <Session sessionData={sessionData} speakerData={speakerData} favesData={favesData} />
-        </View>
-      )
     }
+    return (
+      <View>
+        <Session sessionData={sessionData} speakerData={speakerData} favesData={favesData} />
+      </View>
+    );
   }
 }
 
 const mapStateToProps = store => {
   return {
     speakerData: store.speaker.speakerData,
-    favesData: store.fave.favesData
-  }
-}
+    favesData: store.fave.favesData,
+  };
+};
 
 export default connect(mapStateToProps)(SessionContainer);

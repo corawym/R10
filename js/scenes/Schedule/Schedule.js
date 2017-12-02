@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { formatSessionData } from '../../lib/dataFormatHelpers';
 import SessionList from '../../components/Session';
 import Loader from '../../components/Loader';
-import { styles } from './styles';
 
-
-const Schedule = ({data, isLoading, favesData}) => {
+const Schedule = ({ data, isLoading, favesData }) => {
   if (isLoading) {
     return (
       <Loader />
     );
-  }else{
-    return(
-      <SessionList data={formatSessionData(data)} currentNavigatorUID={'schedule'} favesData={favesData} />
-    )
   }
-}
+  return (
+    <SessionList data={formatSessionData(data)} currentNavigatorUID="schedule" favesData={favesData} />
+  );
+};
 
 Schedule.propTypes = {
   data: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
   favesData: PropTypes.array.isRequired,
-}
+};
 
 export default Schedule;

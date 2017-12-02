@@ -8,11 +8,16 @@ import { getFaves } from '../../redux/modules/fave';
 import Schedule from './Schedule';
 
 class ScheduleContainer extends Component {
-
   static route = {
     navigationBar: {
       title: 'Schedule',
-    }
+    },
+  }
+
+  static propTypes = {
+    sessionData: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    favesData: PropTypes.array.isRequired,
   }
 
   componentDidMount() {
@@ -21,25 +26,19 @@ class ScheduleContainer extends Component {
     realm.addListener('change', this.updateFave);
   }
 
-  updateFave = () => {
-    this.props.dispatch(getFaves());
-  }
-
   componentWillUnmount = () => {
     realm.removeListener('change', this.updateFave);
   }
 
-  static propTypes = {
-    sessionData: PropTypes.array.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    favesData: PropTypes.array.isRequired
+  updateFave = () => {
+    this.props.dispatch(getFaves());
   }
 
-  render(){
+  render() {
     const { sessionData, isLoading, favesData } = this.props;
     return (
       <Schedule data={sessionData} isLoading={isLoading} favesData={favesData} />
-    )
+    );
   }
 }
 
@@ -47,8 +46,8 @@ const mapStateToProps = store => {
   return {
     sessionData: store.session.sessionData,
     isLoading: store.session.isLoading,
-    favesData: store.fave.favesData
-  }
-}
+    favesData: store.fave.favesData,
+  };
+};
 
-export default connect(mapStateToProps)(ScheduleContainer)
+export default connect(mapStateToProps)(ScheduleContainer);

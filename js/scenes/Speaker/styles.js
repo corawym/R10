@@ -1,8 +1,8 @@
 import { StyleSheet, Platform } from 'react-native';
 
-import { colors, typography, textSizes, margins } from '../../config/styles';
+import { typography, textSizes, margins } from '../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   screenWrapper: {
     backgroundColor: 'black',
     paddingTop: margins.marginL,
@@ -13,11 +13,11 @@ export const styles = StyleSheet.create({
       },
       android: {
         paddingLeft: margins.marginL,
-        paddingRight: margins.marginL
+        paddingRight: margins.marginL,
       },
     }),
   },
-  navHeaderWrapper:{
+  navHeaderWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     ...Platform.select({
@@ -27,10 +27,10 @@ export const styles = StyleSheet.create({
     }),
   },
   navIcon: {
-    flex:0.1
+    flex: 0.1,
   },
   navHeader: {
-    flex:0.9,
+    flex: 0.9,
     color: 'white',
     fontSize: textSizes.title3,
     fontFamily: typography.fontRegular,
@@ -44,9 +44,9 @@ export const styles = StyleSheet.create({
     paddingLeft: margins.marginL - margins.marginS,
     paddingRight: margins.marginL - margins.marginS,
   },
-  speakerInfoWrapper:{
+  speakerInfoWrapper: {
     alignItems: 'center',
-    marginTop: margins.marginS
+    marginTop: margins.marginS,
   },
   speakerImage: {
     width: 100,
@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
       android: {
         borderRadius: 100,
       },
-    }),  
+    }),
   },
   speakerName: {
     fontSize: textSizes.title1,
@@ -70,5 +70,7 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontLight,
     lineHeight: textSizes.title2,
     marginTop: margins.marginL,
-  }
+  },
 });
+
+export default styles;

@@ -1,12 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import { styles } from './styles';
+import styles from './styles';
 
-const Separator = () => {
-  return (
-    <View style={styles.separator}/>
-  )
-}
+const Separator = () => (
+  <View style={styles.separator} />
+);
 
 export default Separator;
