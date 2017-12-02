@@ -56,7 +56,7 @@ class NavigationLayout extends Component {
           id="schedule"
           title="Schedule"
           renderTitle={this.renderTitle}
-          renderIcon={(isSelected) => this.renderIcon('ios-calendar', isSelected)}
+          renderIcon={isSelected => this.renderIcon('ios-calendar', isSelected)}
         >
           <StackNavigation
             id="schedule"
@@ -70,7 +70,7 @@ class NavigationLayout extends Component {
           id="faves"
           title="Faves"
           renderTitle={this.renderTitle}
-          renderIcon={(isSelected) => this.renderIcon('ios-heart', isSelected)}
+          renderIcon={isSelected => this.renderIcon('ios-heart', isSelected)}
         >
           <StackNavigation
             id="faves"
@@ -84,7 +84,7 @@ class NavigationLayout extends Component {
           id="about"
           title="About"
           renderTitle={this.renderTitle}
-          renderIcon={(isSelected) => this.renderIcon('ios-information-circle', isSelected)}
+          renderIcon={isSelected => this.renderIcon('ios-information-circle', isSelected)}
         >
           <StackNavigation
             id="about"

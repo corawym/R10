@@ -71,7 +71,7 @@ const Session = ({ sessionData, speakerData, favesData }) => {
   );
 };
 
-Session.PropTypes = {
+Session.propTypes = {
   sessionData: PropTypes.array.isRequired,
   speakerData: PropTypes.object,
   favesData: PropTypes.array.isRequired,

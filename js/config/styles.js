@@ -9,9 +9,6 @@ export const colors = {
   underlayGrey: 'rgba(230, 230, 230 , 0.5)',
 };
 
-// import { colors } from './config/styles'
-// colors.red
-
 export const typography = {
   fontLight: 'Montserrat-Light',
 

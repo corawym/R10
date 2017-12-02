@@ -6,7 +6,6 @@ import Separator from '../../components/Separator';
 import ConductItem from '../../components/ConductItem';
 import styles from './styles';
 
-
 const About = ({ data }) => {
   return (
     <ScrollView>
